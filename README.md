@@ -16,9 +16,21 @@ Created an application that can be used to write, save, and delete notes. This a
 
 ## Installation:
 
+* => run [npm i]
+* => run #1 or #2
+
+  #1. [npx nodemon server.js]
+          
+  #2. [node server.js]
+* => run [control^ + c] to end
 
 
 ## Usage: 
+
+![demo](./public/assets/img/img3.png)
+![demo](./public/assets/img/img2.png)
+![demo](./public/assets/img/img1.png)
+
 
 * School
   * Studying

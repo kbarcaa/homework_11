@@ -16,24 +16,26 @@ app.get("/", function (req, res) {
 });
 app.get("/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "public/notes.html"));
-  
 });
 
 // === data routes ====================================================
 
   // getting data from db json and parsing it to use as obj
 app.get("/api/notes", (req, res) => {
+
   let allNotes = fs.readFileSync("./db/db.json");
   allNotes = JSON.parse(allNotes);
   res.json(allNotes);
+  
 });
 
   // getting data from db json to write and push in new note with unique id
 app.post("/api/notes", (req, res) => {
+
   let allNotes = fs.readFileSync("./db/db.json");
   allNotes = JSON.parse(allNotes);
   let newNote = req.body;
-  let uniqueID = allNotes.length
+  let uniqueID = allNotes.length.toString();
   newNote.id = uniqueID;
   console.log(newNote);
   allNotes.push(newNote);
@@ -41,6 +43,7 @@ app.post("/api/notes", (req, res) => {
   fs.writeFileSync("./db/db.json", allNotes);
   res.json({ result: "success", allNotes });
   console.log(allNotes);
+
 });
 
   // getting data from db json to delete and write in new obj->str without it
