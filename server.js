@@ -16,38 +16,47 @@ app.get("/", function (req, res) {
 });
 app.get("/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "public/notes.html"));
+  
 });
 
 // === data routes ====================================================
 
+  // getting data from db json and parsing it to use as obj
 app.get("/api/notes", (req, res) => {
-  let savedNotes = fs.readFileSync("./db/db.json");
-  savedNotes = JSON.parse(savedNotes);
-  res.json(savedNotes);
+  let allNotes = fs.readFileSync("./db/db.json");
+  allNotes = JSON.parse(allNotes);
+  res.json(allNotes);
 });
 
+  // getting data from db json to write and push in new note with unique id
 app.post("/api/notes", (req, res) => {
-  let savedNotes = fs.readFileSync("./db/db.json");
-  savedNotes = JSON.parse(savedNotes);
-
+  let allNotes = fs.readFileSync("./db/db.json");
+  allNotes = JSON.parse(allNotes);
   let newNote = req.body;
-  // setting the length of savedNotes into a string
-  let uniqueID = savedNotes.length.toString();
-  // setting the dynamically created uniqueID
+  let uniqueID = allNotes.length
   newNote.id = uniqueID;
   console.log(newNote);
-
-  savedNotes.push(newNote);
-  savedNotes = JSON.stringify(savedNotes);
-  fs.writeFileSync("./db/db.json", savedNotes);
-
-  res.json({ result: "success", savedNotes });
-  console.log(savedNotes);
+  allNotes.push(newNote);
+  allNotes = JSON.stringify(allNotes);
+  fs.writeFileSync("./db/db.json", allNotes);
+  res.json({ result: "success", allNotes });
+  console.log(allNotes);
 });
 
-// === delete route ====================================================
+  // getting data from db json to delete and write in new obj->str without it
+app.delete("/api/notes/:id", (req, res) => {
 
-app.delete("api/notes/:id", (req, res) => {});
+  let allNotes = fs.readFileSync("./db/db.json");
+  allNotes = JSON.parse(allNotes);
+  allNotes = allNotes.filter(note=>{
+    return note.id != req.params.id;
+  });
+  allNotes = JSON.stringify(allNotes);
+  fs.writeFileSync("./db/db.json", allNotes);
+  allNotes = JSON.parse(allNotes);
+  res.json(allNotes)
+
+});
 
 // === PORT ============================================================
 
