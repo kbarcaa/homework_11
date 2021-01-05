@@ -1,7 +1,7 @@
 # Note Taker
 
-## sungjinkimm
-[https://github.com/sungjinkimm](https://github.com/sungjinkimm)
+## Link
+[https://github.com/kbarcaa](https://github.com/kbarcaa)
 
 ## Project Description:
 
@@ -54,11 +54,9 @@ THE SOFTWARE IS PROVIDED "AS IS",  WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPL
 
 ## Badge: 
 
-![GitHub followers](https://img.shields.io/github/followers/sungjinkimm?style=social)
-
-![homework_11](https://img.shields.io/github/languages/top/sungjinkimm/homework_11)
+![homework_11](https://img.shields.io/github/languages/top/kbarcaa/homework_11)
 
 ## GitHub URL & Profile
-[GitHub URL](https://github.com/sungjinkimm)
+[GitHub URL](https://github.com/kbarcaa)
 
 <!-- ![GitHub Avatar](https://avatars0.githubusercontent.com/u/50185484?v=4) -->
